@@ -7,6 +7,8 @@ RUN yum update -y && \
     yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel && \
     yum clean all
 
+ENV JAVA_HOME /usr/lib/jvm/java
+
 LABEL io.k8s.description="Platform for building and running Java8 applications" \
       io.k8s.display-name="Java8" \
       io.openshift.expose-services="8080:http" \
