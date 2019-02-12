@@ -1,0 +1,37 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 'ms-builder-runtime' image.
+# The 'assemble' script currently only supports binary builds.
+#
+if [ ! -z ${S2I_DEBUG} ]; then
+	echo "turning on assembly debug";
+  set -x
+fi
+
+# Binary deployment is a single war
+# if [ $(ls /opt/app/src/*.jar | wc -l) -eq 1 ]; then
+#  mv /opt/app/src/*.jar /opt/app/openshift-app.jar
+# else
+#  echo "Jar not found in /opt/app/src/"build
+#  exit 1
+# fi
+# ls /opt/app/src
+
+# Binary deployment is a single war
+if [ $(ls /opt/app/*.jar | wc -l) -eq 1 ]; then
+
+   rm -rf /opt/app/deployment
+   
+   mkdir -p /opt/app/deployment
+   
+   cd /opt/app/deployment
+   
+   mv /opt/app/*.jar service-server.jar
+
+else
+  echo "Jar not found in /opt/app/"
+  exit 1
+fi
+
+# ls -l
+# mvn clean package -u
