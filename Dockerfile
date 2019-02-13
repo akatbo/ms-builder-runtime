@@ -18,7 +18,7 @@ RUN mkdir -p /opt/app  && chown -R javauser: /opt/app
 
 COPY ./S2iScripts/ /usr/local/s2i
 
-chmod +x -R /usr/local/s2i
+RUN chmod +x -R /usr/local/s2i
 
 USER 10001
 
