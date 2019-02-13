@@ -11,6 +11,10 @@ if [ ! -z ${S2I_DEBUG} ]; then
   set -x
 fi
 
+ls -ltr /opt/app
+
+chmod +x -R /opt/app
+
 ls -ltr /opt/app/src
 
 # Binary deployment is a single war
