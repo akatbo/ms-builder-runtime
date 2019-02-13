@@ -18,13 +18,13 @@ chmod +x -R /opt/app
 ls -ltr /opt/app/src
 
 # Binary deployment is a single war
-if [ $(ls /opt/app/src/*.jar | wc -l) -eq 1 ]; then
+#if [ $(ls /opt/app/src/*.jar | wc -l) -eq 1 ]; then
   
   # mkdir -p /opt/app/deployment
   
-  mv /opt/app/src/*.jar service-server.jar
+#  mv /opt/app/src/*.jar service-server.jar
 
-else
-  echo "Jar not found in /opt/app/src"
-  exit 1
-fi
+# else
+#  echo "Jar not found in /opt/app/src"
+#  exit 1
+# fi
