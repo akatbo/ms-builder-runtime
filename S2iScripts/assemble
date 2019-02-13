@@ -14,7 +14,7 @@ fi
 # Binary deployment is a single war
 if [ $(ls /opt/app/*.jar | wc -l) -eq 1 ]; then
   
-  mkdir -p /opt/app/deployment
+  # mkdir -p /opt/app/deployment
   
   mv /opt/app/*.jar service-server.jar
 
