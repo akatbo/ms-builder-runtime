@@ -1,13 +1,7 @@
-FROM openshift/base-centos7
+FROM centos:latest
 MAINTAINER akatbo@gmail.com
 
-ENV JAVA_VERSON 1.8.0
-
-RUN yum update -y && \
-    yum install -y java-$JAVA_VERSON-openjdk java-$JAVA_VERSON-openjdk-devel && \
-    yum clean all
-
-ENV JAVA_HOME /usr/lib/jvm/java
+RUN yum install -y java wget mvn --setopt=tsflags=nodocs && yum -y clean all
 
 LABEL io.k8s.description="Platform for building and running Java8 applications" \
       io.k8s.display-name="Java8" \
@@ -16,9 +10,9 @@ LABEL io.k8s.description="Platform for building and running Java8 applications" 
       io.openshift.s2i.destination="/opt/app" \
       io.openshift.s2i.scripts-url=image:///usr/local/s2i
 
-RUN mkdir -p /opt/app
+RUN adduser --system -u 10001 javauser
 
-RUN adduser --system --base-dir /opt/app -u 10001 javauser && chown -R javauser: /opt/app
+RUN mkdir -p /opt/app  && chown -R javauser: /opt/app
 
 COPY ./S2iScripts/ /usr/local/s2i
 

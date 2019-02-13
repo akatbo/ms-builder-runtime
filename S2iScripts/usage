@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "****************************************************************************************"
-echo "* This is a S2I ms runtime builder image for packaging and running Java 8 applications *"
-echo "* It expects applications to be streamed into it via the S2I build process             *"
-echo "****************************************************************************************"
+echo "**************************************************************************************"
+echo "* This is an example S2I builder image for packaging and running Java 8 applications *"
+echo "* It expects applications to be streamed into it via the S2I build process           *"
+echo "**************************************************************************************"
